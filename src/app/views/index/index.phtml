@@ -1,0 +1,38 @@
+<h1>HEY</h1>
+
+<form method="POST">
+    <label>Name</label>
+    <input type="text" name='name' /> <br>
+
+    <label>Category name</label>
+    <input type="text" name='categoryName' /><br>
+    <label>Price</label>
+    <input type="text" name='price' /><br>
+    <label>Stock</label>
+    <input type="text" name='stock' /><br>
+    <label>Additional fields <span class="buttons" id="addFields"><b> + </b></span></label><br>
+    <!-- Dynaicall add this Section -->
+    <div id="additionalFields">
+    </div>
+    <label>Variations fields <span class="buttons" id="addVariations"><b> + </b></span></label><br>
+    <div id="variations">
+        <label> <b>
+                <------Variation Field------->
+            </b></label>
+
+        <div id="VariationNameAndValue">
+
+
+            <br><label> <b>Variation Name </b></label>
+            <input type="text" name='variationName[]' />
+            <label> <b>Variation Value </b></label>
+            <input type="text" name='variationValue[]' /><span class="buttons" id="addVariationNameAndValue"><b> + </b></span><br>
+
+
+        </div>
+        <br><label> <b>Variation Price </b></label>
+        <input type="text" name='variationPrice' /><br>
+    </div>
+
+    <br><input type="submit" value="submit">
+</form>
