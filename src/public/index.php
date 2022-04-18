@@ -12,7 +12,7 @@ use Phalcon\Db\Adapter\Pdo\Mysql;
 use Phalcon\Config;
 
 $config = new Config([]);
-
+require_once("../app/vendor/autoload.php");
 // Define some absolute path constants to aid in locating resources
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');
@@ -50,32 +50,16 @@ $container->set(
 );
 
 $application = new Application($container);
-
-
-
-// $container->set(
-//     'db',
-//     function () {
-//         return new Mysql(
-//             [
-//                 'host'     => 'localhost',
-//                 'username' => 'root',
-//                 'password' => '',
-//                 'dbname'   => 'phalt',
-//                 ]
-//             );
-//         }
-// );
-
 $container->set(
     'mongo',
     function () {
-        $mongo = new MongoClient();
-
-        return $mongo->selectDB('phalt');
+        $mongo =  new MongoDB\Client('mongodb://mongo', array('username'=>'root',"password"=>'password123'));
+        return $mongo->store;
     },
     true
 );
+
+
 
 try {
     // Handle the request
