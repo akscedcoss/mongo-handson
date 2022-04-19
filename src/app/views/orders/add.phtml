@@ -1,1 +1,21 @@
-<h1>Create Orders </h1>
+<?php ?>
+<h1>Add Orders</h1>
+
+<form method="POST">
+    <label>Customer Name</label>
+    <input type="text" name='cname' /> <br>
+
+    <label>QTY </label>
+    <input type="text" name='qty' /> <br>
+    <label>Address </label>
+    <input type="text" name='address' /> <br>
+    <label>Product [DropDown ]</label>
+    <select name="prod" id="prod">
+       
+       <?php foreach($data as $k=>$v){
+           echo "<option value=".$v->name.">".$v->name."</option>";
+       }?>
+    </select>
+    <br><input type="Submit" name='submit' /> <br>
+
+</form>
